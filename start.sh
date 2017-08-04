@@ -1,6 +1,9 @@
 # Let's move to the directory where the project is
 cd /var/www/airhockey
 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=/var/www
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 source /usr/local/bin/virtualenvwrapper.sh
 workon air-hockey
 
