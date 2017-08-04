@@ -1,13 +1,16 @@
 import sqlite3
 
 try:
+    print("Creating airhockey.sqlite...")
     conn = sqlite3.connect("/var/www/airhockey/airhockey.sqlite")
     conn.text_factory = str
     cur = conn.cursor()
+    print("Database created!")
 except:
     print("Was unable to create the database")
 
 try:
+    print("Creating Matches and Players tables...")
     cur.execute(""" CREATE TABLE "Matches" (
                     `match_id` INTEGER PRIMARY KEY AUTOINCREMENT,
                     `p1_id` INTEGER NOT NULL,
@@ -25,9 +28,9 @@ try:
                     `wins` INTEGER DEFAULT 0,
                     `weight` INTEGER DEFAULT 0
                     ) """)
+    print("Tables created!")
 except:
     print("Was unable to create the tables")
 
-print("Success!")
 conn.commit()
 conn.close()
