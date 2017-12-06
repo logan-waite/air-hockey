@@ -108,7 +108,7 @@ def admin():
 @app.route('/admin/add-player', methods=["PUT"])
 def addPlayer():
     name = flask.request.form["name"]
-    cur.execute('INSERT OR IGNORE INTO Players (name, ranking) VALUES ( ?, NULL )', ( name, ) )
+    cur.execute('INSERT OR IGNORE INTO Players (name) VALUES ( ? )', ( name, ) )
     conn.commit()
     return flask.Response(status=200)
 
